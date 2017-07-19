@@ -9,7 +9,7 @@ module Barbeque
         @message = message
         @job_queue = job_queue
 
-        subscription = SNSSubscription.find_by!(topic_arn: @message.topic_arn, job_queue_id: @job_queue.id)
+        subscription = SNSSubscription.find_by!(topic_arn: @message.topic_arn)
         @message.set_params_from_subscription(subscription)
       end
     end

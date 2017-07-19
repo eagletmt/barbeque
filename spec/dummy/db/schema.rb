@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712075449) do
+ActiveRecord::Schema.define(version: 20170719102015) do
 
   create_table "barbeque_apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC" do |t|
     t.string   "name",                       null: false
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20170712075449) do
     t.integer  "job_definition_id", null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["topic_arn"], name: "index_barbeque_sns_subscriptions_on_topic_arn", unique: true, using: :btree
   end
 
 end
